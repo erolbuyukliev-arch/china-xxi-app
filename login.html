@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <title>Вход - Китай в XXI век</title>
 </head>
-<body>
-  <h1>Login Page</h1>
+<body class="bg-light d-flex align-items-center" style="min-height: 100vh;">
 
-  <form id="login-form">
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        
+        <div class="card shadow-lg border-0 rounded-lg mt-5">
+          <div class="card-header bg-danger text-white text-center py-3">
+            <h3 class="font-weight-light my-2">Вход в системата</h3>
+          </div>
+          
+          <div class="card-body p-4">
+            <form id="login-form">
+              <div class="mb-3">
+                <label for="email" class="form-label">Имейл адрес</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+              </div>
+              <div class="mb-4">
+                <label for="password" class="form-label">Парола</label>
+                <input type="password" class="form-control" id="password" placeholder="********" required>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-danger btn-lg" type="submit" id="submit-btn">Влез</button>
+              </div>
+            </form>
+          </div>
+          
+          <div class="card-footer text-center py-3">
+            <div class="small">
+              <a href="#" id="toggle-form" class="text-danger text-decoration-none">Нямаш акаунт? Регистрирай се!</a>
+            </div>
+            <div class="small mt-2">
+              <a href="/index.html" class="text-muted text-decoration-none">← Към началната страница</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="/src/login.js"></script>
+
 </body>
 </html>
