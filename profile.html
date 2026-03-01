@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Моят Профил - Китай в XXI век</title>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-danger shadow-sm mb-5">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/index.html">🇨🇳 Моят Профил</a>
+      <a href="/index.html" class="btn btn-outline-light btn-sm">Назад</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow border-0 text-center p-4">
+          <div class="mb-3">
+            <img id="profile-img" src="https://via.placeholder.com/150" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
+          </div>
+          <h4 id="user-email" class="mb-4 text-muted">Зареждане...</h4>
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">Смени профилната снимка</label>
+            <input type="file" id="avatar-input" class="form-control" accept="image/*">
+          </div>
+          <button id="upload-btn" class="btn btn-danger w-100">Качи снимка</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/profile.js"></script>
+</body>
+</html> 
