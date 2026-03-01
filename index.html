@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>China in the XXI Century</title>
-  </head>
-  <body>
-    <div class="container mt-5 text-center">
-      <h1 class="text-primary">Добре дошли в China in the XXI Century</h1>
-      <p class="lead">Проектът е успешно инициализиран.</p>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Китай в XXI век</title>
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">🇨🇳 Китай в XXI век</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Начало</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Анализи</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center">
+          <span id="user-greeting" class="text-white me-3"></span>
+          <button id="logout-btn" class="btn btn-outline-light btn-sm d-none">Изход</button>
+          <a href="/login.html" id="login-link" class="btn btn-light btn-sm">Вход / Регистрация</a>
+        </div>
+      </div>
     </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold">Добре дошли в портала за Китай</h1>
+      <p class="lead text-muted">Икономика, технологии, дипломация и анализи в XXI век.</p>
+    </div>
+
+    <div id="articles-container" class="row">
+      <div class="col-12 text-center text-muted">
+        <p>Зареждане на съдържанието...</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
 </html>

@@ -42,6 +42,7 @@ form.addEventListener('submit', async (e) => {
             });
             if (error) throw error;
             alert('Успешен вход! Добре дошъл.');
+            window.location.href = '/index.html';
         } else {
             const { data, error } = await supabase.auth.signUp({
                 email: email,
