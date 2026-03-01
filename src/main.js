@@ -58,7 +58,7 @@ async function loadAnalyses() {
                     <div class="card-body">
                         <h5 class="card-title text-danger fw-bold">${analysis.title}</h5>
                         <p class="card-text text-muted">${contentText}</p>
-                        <a href="#" class="btn btn-outline-danger btn-sm">Прочети целия анализ</a>
+                        <a href="/article.html?id=${analysis.id}" class="btn btn-outline-danger btn-sm">Прочети целия анализ</a> 
                     </div>
                 </div>
             </div>
