@@ -1,14 +1,33 @@
-# Китай в XXI век - Проект
-Динамично уеб приложение за анализи.
+# 🇨🇳 Китай в XXI век - Информационен Портал
 
-## Линк към проекта: 
-https://dulcet-salmiakki-28920b.netlify.app 
-## Инсталация:
-1. `npm install`
-2. `npm run dev`
+## 📝 Описание на проекта
+[cite_start]Това е уеб-базирана платформа за анализи и статии, фокусирана върху икономическото и технологичното развитие на Китай в съвременния свят[cite: 6]. [cite_start]Проектът позволява на посетителите да четат актуални анализи, а на администраторите – да управляват съдържанието чрез защитен панел[cite: 24, 39].
 
-## Използвани технологии:
-- Vite, JavaScript, Bootstrap
-- Supabase (Database, Auth, Storage)
-- Netlify (Deployment) 
-*Проектът е финална задача за курса "Software Technologies with AI" в SoftUni.* 
+## 🏗️ Архитектура и Технологии
+[cite_start]Проектът използва **client-server архитектура**[cite: 15]:
+* [cite_start]**Frontend**: HTML5, CSS3, JavaScript (ES6+) и Bootstrap за адаптивен дизайн[cite: 10, 25].
+* [cite_start]**Build Tool**: Vite за оптимизирана разработка[cite: 13, 16].
+* [cite_start]**Backend**: Supabase (Database, Auth, RLS) за управление на данни и сигурност[cite: 12, 29, 31].
+* [cite_start]**Deployment**: Netlify за непрекъсната интеграция и хостинг[cite: 51].
+
+## 📊 База данни (Supabase DB)
+[cite_start]Проектът включва 5 основни таблици[cite: 41]:
+1. `analyses` – съхранява заглавията и съдържанието на статиите.
+2. `profiles` – потребителски профили.
+3. `user_roles` – дефиниране на администраторски права.
+4. `comments` – обратна връзка от потребители.
+5. `attachments` – файлове и изображения.
+
+
+
+## 🔐 Сигурност и Роли
+[cite_start]Използва се **Supabase Auth** за регистрация и вход[cite: 31, 35]. [cite_start]Достъпът до създаване на нови статии е защитен чрез **Row Level Security (RLS)** политики [cite: 37][cite_start], позволяващи само на оторизирани администратори да извършват `INSERT` операции[cite: 38].
+
+## 🚀 Локално стартиране
+1. Клонирайте хранилището: `git clone <your-repo-url>`
+2. [cite_start]Инсталирайте зависимостите: `npm install` [cite: 13]
+3. [cite_start]Стартирайте локалния сървър: `npm run dev` [cite: 13]
+
+## 🔑 Тестови данни
+* [cite_start]**Admin Email**: ErBuyukliev@students.softuni.bg [cite: 3]
+* [cite_start]**Password**: Temp1234 [cite: 3, 52] 
