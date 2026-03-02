@@ -1,72 +1,44 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { supabase } from './services/supabaseClient.js';
+import { createClient } from '@supabase/supabase-js';
 
-// Елементи
-const loginLink = document.getElementById('login-link');
+// 1. Връзка със Supabase
+const supabaseUrl = 'https://uiqctrgucsuwdonjdvdr.supabase.co';
+// Поставяме твоя дълъг anon ключ точно вътре в кавичките
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpcWN0cmd1Y3N1d2RvbmpkdmRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNTI4NTAsImV4cCI6MjA4NzgyODg1MH0.RgWCf1tXQonj0F-1MBoo-3CL82xDKK74Uy2aDrxe5WQ'; 
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// 2. Функция за управление на бутоните
+async function updateUI() {
+  // Вземаме сесията, за да проверим дали има логнат потребител
+  const { data: { session } } = await supabase.auth.getSession();
+
+  const loginLink = document.getElementById('login-link');
+  const logoutBtn = document.getElementById('logout-btn');
+  const userGreeting = document.getElementById('user-greeting');
+  const addArticleBtn = document.getElementById('add-article-btn');
+
+  if (session) {
+    // ПОТРЕБИТЕЛЯТ Е ВЛЯЗЪЛ
+    if (loginLink) loginLink.classList.add('d-none');
+    if (logoutBtn) logoutBtn.classList.remove('d-none');
+    if (userGreeting) userGreeting.textContent = `👤 ${session.user.email}`;
+    if (addArticleBtn) addArticleBtn.classList.remove('d-none');
+  } else {
+    // НЯМА ВЛЯЗЪЛ ПОТРЕБИТЕЛ
+    if (loginLink) loginLink.classList.remove('d-none');
+    if (logoutBtn) logoutBtn.classList.add('d-none');
+    if (userGreeting) userGreeting.textContent = '';
+    if (addArticleBtn) addArticleBtn.classList.add('d-none');
+  }
+}
+
+// Стартираме проверката при отваряне на сайта
+updateUI();
+
+// 3. Логика за бутона Изход
 const logoutBtn = document.getElementById('logout-btn');
-const userGreeting = document.getElementById('user-greeting');
-
-// 1. Проверка за влязъл потребител
-async function checkUser() {
-    const { data: { session } } = await supabase.auth.getSession();
-    
-    if (session) {
-        const userEmail = session.user.email;
-        loginLink.classList.add('d-none');
-        logoutBtn.classList.remove('d-none');
-        userGreeting.textContent = `Здравей, ${userEmail}`;
-    } else {
-        loginLink.classList.remove('d-none');
-        logoutBtn.classList.add('d-none');
-        userGreeting.textContent = '';
-    }
-}
-
-// 2. Изход от профила
-logoutBtn.addEventListener('click', async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) alert('Грешка: ' + error.message);
-    else window.location.reload();
-});
-
-// 3. Зареждане на анализите от базата данни
-async function loadAnalyses() {
-    const container = document.getElementById('articles-container');
-
-    const { data: analyses, error } = await supabase
-        .from('analyses')
-        .select('*');
-
-    if (error) {
-        console.error('Грешка:', error);
-        container.innerHTML = '<div class="alert alert-danger">Грешка при зареждане.</div>';
-        return;
-    }
-
-    if (!analyses || analyses.length === 0) {
-        container.innerHTML = '<div class="col-12 text-center text-muted"><p>Все още няма анализи.</p></div>';
-        return;
-    }
-
-    container.innerHTML = ''; // Изчистваме текста "Зареждане..."
-
-    analyses.forEach(analysis => {
-        const contentText = analysis.content ? analysis.content.substring(0, 100) + '...' : '';
-        const card = `
-            <div class="col-md-6 mb-4">
-                <div class="card shadow-sm h-100 border-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-danger fw-bold">${analysis.title}</h5>
-                        <p class="card-text text-muted">${contentText}</p>
-                        <a href="/article.html?id=${analysis.id}" class="btn btn-outline-danger btn-sm">Прочети целия анализ</a> 
-                    </div>
-                </div>
-            </div>
-        `;
-        container.innerHTML += card;
-    });
-}
-
-// Стартираме функциите
-checkUser();
-loadAnalyses(); 
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', async () => {
+    await supabase.auth.signOut();
+    window.location.reload(); // Презарежда страницата
+  });
+} 
