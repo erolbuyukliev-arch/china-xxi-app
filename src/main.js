@@ -42,3 +42,29 @@ if (logoutBtn) {
     window.location.reload(); // Презарежда страницата
   });
 } 
+// 4. Логика за формата за Вход (в login.html)
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Спираме презареждането на страницата по подразбиране
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorDiv = document.getElementById('login-error');
+
+    // Опитваме се да влезем чрез Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      // Ако има грешка, показваме я
+      errorDiv.textContent = 'Грешен имейл или парола!';
+      errorDiv.classList.remove('d-none');
+    } else {
+      // Ако влезем успешно, пренасочваме към началната страница
+      window.location.href = 'index.html';
+    }
+  });
+} 
