@@ -11,3 +11,4 @@ https://dulcet-salmiakki-28920b.netlify.app
 - Vite, JavaScript, Bootstrap
 - Supabase (Database, Auth, Storage)
 - Netlify (Deployment) 
+*Проектът е финална задача за курса "Software Technologies with AI" в SoftUni.* 
