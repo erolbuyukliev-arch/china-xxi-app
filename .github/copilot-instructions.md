@@ -1,8 +1,16 @@
-# Project Context
-This is a vanilla JavaScript project using Vite, HTML, CSS, and Bootstrap.
-Do NOT use TypeScript, React, Vue, or any other UI framework.
+# Инструкции за AI Асистент (China XXI Project)
 
-# Architecture
-- Client-server architecture: Vanilla JS frontend communicating with Supabase backend.
-- Multi-page navigation (separate HTML files for screens).
-- Modular design: UI, logic, and styles should be separated.
+## Контекст на приложението
+[cite_start]Това е образователна платформа за анализи "Китай в XXI век", изградена като **Capstone Project**[cite: 1, 5]. 
+
+## Архитектурни насоки
+* [cite_start]**Frontend**: Чист JavaScript (ES6+), HTML5, CSS3 и Bootstrap 5[cite: 10, 11].
+* [cite_start]**Инструменти**: Използва се Vite за build процеси и npm за управление на пакети[cite: 13].
+* [cite_start]**Backend**: Supabase за база данни (PostgreSQL), автентикация (Auth) и съхранение на файлове (Storage)[cite: 12, 29, 30].
+* [cite_start]**Навигация**: Multi-page дизайн с отделни HTML файлове за всяка секция[cite: 17, 27].
+
+## Правила за разработка
+1. [cite_start]**Модулност**: Кодът трябва да е разделен на логически части (UI, услуги, помощни скриптове)[cite: 18, 19].
+2. [cite_start]**Сигурност**: Всички заявки към базата данни трябва да се съобразяват с Row-Level Security (RLS) политиките[cite: 37].
+3. [cite_start]**Адаптивност**: Дизайнът трябва да е мобилно оптимизиран (Responsive)[cite: 25].
+4. [cite_start]**Git**: Всеки успешен етап трябва да се комитва с ясно описание[cite: 55]. 
