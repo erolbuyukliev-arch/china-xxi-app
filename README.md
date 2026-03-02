@@ -2,8 +2,7 @@
 Динамично уеб приложение за анализи.
 
 ## Линк към проекта: 
-https://superb-piroshki-4c57ca.netlify.app
-
+https://dulcet-salmiakki-28920b.netlify.app 
 ## Инсталация:
 1. `npm install`
 2. `npm run dev`
