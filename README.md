@@ -31,3 +31,13 @@
 ## 🔑 Тестови данни
 * [cite_start]**Admin Email**: ErBuyukliev@students.softuni.bg [cite: 3]
 * [cite_start]**Password**: Temp1234 [cite: 3, 52] 
+## 🏗️ Архитектура на проекта
+[cite_start]Проектът използва клиент-сървър архитектура[cite: 15]:
+* [cite_start]**Frontend**: Изграден с HTML, CSS, JavaScript и Bootstrap за респонсив дизайн[cite: 10, 25].
+* [cite_start]**Backend**: Използва се Supabase за база данни, автентикация (Auth) и съхранение на файлове (Storage)[cite: 12, 29].
+* [cite_start]**Build tools**: Проектът е структуриран чрез Node.js, npm и Vite[cite: 13, 16].
+
+## 📂 Ключови папки и файлове
+* [cite_start]`.github/` - Съдържа `copilot-instructions.md` с контекст и инструкции за AI агента[cite: 21].
+* [cite_start]`src/services/` - Съдържа модулните JavaScript файлове (услуги) за връзка със Supabase API и бизнес логиката[cite: 15, 18].
+* [cite_start]`*.html` файлове - Потребителският интерфейс е реализиран чрез отделни страници (multi-page navigation) за по-добра поддръжка[cite: 17, 27].
