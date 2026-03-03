@@ -67,3 +67,29 @@ if (logoutBtn) {
     window.location.reload();
   });
 } 
+// 4. Обработка на формата за вход (Login)
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Това спира презареждането и появата на въпросителния знак!
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorBox = document.getElementById('login-error');
+
+    // Опит за влизане чрез Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      // Показваме грешката, ако има такава (напр. грешна парола)
+      errorBox.textContent = 'Грешка: ' + error.message;
+      errorBox.classList.remove('d-none');
+    } else {
+      // При успех пренасочваме към началната страница
+      window.location.href = 'index.html';
+    }
+  });
+} 
