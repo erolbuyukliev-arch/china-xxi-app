@@ -10,7 +10,6 @@ async function fetchAnalyses() {
   const container = document.getElementById('articles-container');
   if (!container) return;
 
-  // Взимаме данните от таблица 'analyses'
   const { data, error } = await supabase
     .from('analyses')
     .select('*')
@@ -21,12 +20,17 @@ async function fetchAnalyses() {
     return;
   }
 
-  // Изчистваме контейнера и подреждаме статиите
   container.innerHTML = '';
   data.forEach(article => {
+    // НОВО: Проверяваме дали статията има снимка
+    const imageElement = article.image_url 
+      ? `<img src="${article.image_url}" class="card-img-top" alt="Снимка към анализ" style="height: 200px; object-fit: cover;">` 
+      : `<div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;"><span>Няма прикачена снимка</span></div>`;
+
     const card = `
       <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm border-0">
+          ${imageElement}
           <div class="card-body">
             <h5 class="card-title fw-bold text-danger">${article.title}</h5>
             <p class="card-text text-muted text-truncate">${article.content.substring(0, 150)}...</p>
@@ -92,4 +96,4 @@ if (loginForm) {
       window.location.href = 'index.html';
     }
   });
-} 
+}  
